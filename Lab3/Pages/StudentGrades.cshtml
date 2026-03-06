@@ -1,0 +1,109 @@
+@page
+@model Lab3.Pages.StudentGradesModel
+@{
+    ViewData["Title"] = "Student Grades";
+}
+
+<style>
+    .page-box {
+        margin-top: 30px;
+    }
+
+    .top-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 18px;
+    }
+
+    .title-text {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .grade-btn {
+        background: #7266f0;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    .grade-btn:hover {
+        background: #6156db;
+    }
+
+    .custom-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .custom-table thead tr {
+        background-color: #4b4343;
+        color: white;
+    }
+
+    .custom-table th,
+    .custom-table td {
+        padding: 12px 14px;
+        text-align: left;
+        border: 1px solid #e5e5e5;
+    }
+
+    .custom-table tbody tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+    .calc-box {
+        margin-top: 18px;
+        background: #efefef;
+        padding: 14px 16px;
+        border-radius: 6px;
+        color: #444;
+        font-size: 14px;
+    }
+</style>
+
+<div class="container page-box">
+    <div class="top-row">
+        <h2 class="title-text">Student Grade Table</h2>
+
+        <form method="post">
+            <button type="submit" asp-page-handler="Calculate" class="grade-btn">
+                Calculate Letter Grades
+            </button>
+        </form>
+    </div>
+
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th style="width:60px;">#</th>
+                <th>Student</th>
+                <th>Midterm</th>
+                <th>Final</th>
+                <th>Letter Grade</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (int i = 0; i < Model.Students.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@Model.Students[i].Name</td>
+                    <td>@Model.Students[i].Midterm</td>
+                    <td>@Model.Students[i].Final</td>
+                    <td>@Model.Students[i].LetterGrade</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="calc-box">
+        Calculation 40% Midterm + 60% Final
+    </div>
+</div>
