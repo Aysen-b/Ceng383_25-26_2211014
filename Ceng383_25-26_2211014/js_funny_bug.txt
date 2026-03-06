@@ -1,0 +1,66 @@
+Student: Ayşen
+Course: CENG 382 Web Programming
+Topic: JavaScript Funny Bug Example
+
+KONU: JavaScript’te “null is not an object / Cannot read properties of null” hatası
+(Örn: Butona tıklayınca hiçbir şey olmaması)
+
+1) HATA NEDİR?
+JavaScript'te DOM’dan bir elemanı id ile alırken (document.getElementById),
+eğer sayfada o id’ye sahip bir eleman yoksa sonuç "null" döner.
+Sonra bu null üzerinde addEventListener / style / src gibi bir şey çağırınca hata verir:
+
+Örnek hata mesajı:
+- Cannot read properties of null (reading 'addEventListener')
+- Uncaught TypeError: Cannot set properties of null
+
+2) NEDEN OLUR? 
+Bizim sayfada dosya isimleri / id’ler uyuşmadığında olmuştu.
+
+Örnek 1: id uyuşmazlığı
+HTML:
+<button id="btnChangePhoto">Foto Değiştir</button>
+
+JS (yanlış id):
+document.getElementById("btnChangePHOTO").addEventListener(...)
+
+Bu durumda getElementById(...) null döner, event bağlanamaz ve butona basınca hiçbir şey olmaz.
+
+Örnek 2: script dosya adı yanlış bağlanması
+Klasörde dosya adı: javascript.js
+HTML:
+<script src="script.js"></script>
+
+Bu durumda JS dosyası hiç yüklenmez, hiçbir buton çalışmaz. Console’da 404 Not Found görülebilir.
+
+3) TEKNİK AÇIKLAMA
+- DOM, tarayıcının HTML’i ağaç yapısı olarak tutmasıdır.
+- JS, DOM elemanlarını id/class ile bulup değiştirir.
+- Eleman bulunamazsa referans null olur.
+- null üzerinde fonksiyon çağırmak TypeError üretir.
+- Bazen hata Console’da görünür ama kullanıcı sadece "çalışmıyor" zanneder.
+
+4) NASIL ÖNLERİZ?
+A) ID ve dosya adı tutarlılığı
+- HTML’deki id ile JS’te kullanılan id birebir aynı olmalı (büyük/küçük harf dahil).
+- script src dosya adı klasördeki gerçek dosya adıyla aynı olmalı.
+
+B) Defensive programming (null kontrolü)
+Örnek güvenli kod:
+const btn = document.getElementById("btnChangePhoto");
+if (btn) {
+  btn.addEventListener("click", () => { ... });
+} else {
+  console.warn("btnChangePhoto bulunamadı. HTML id kontrol edilmeli.");
+}
+
+C) Script’i body sonunda yüklemek veya DOMContentLoaded kullanmak
+- script etiketi </body> kapanmadan hemen önce olursa DOM hazır olur.
+- Alternatif:
+document.addEventListener("DOMContentLoaded", () => {
+  // burada elementleri seç, eventleri bağla
+});
+
+D) Hata ayıklama alışkanlığı
+- F12 -> Console ve Network sekmelerinden 404 (dosya bulunamadı) kontrol edilir.
+- Bu, “hiçbir şey olmuyor” tarzı hataları hızlı bulmayı sağlar.

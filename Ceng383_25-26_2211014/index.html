@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayşen Web Lab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="topbar">
+    <div class="nav-left">CENG Web Demo</div>
+    <ul class="nav-links">
+      <li><a href="#">Anasayfa</a></li>
+      <li><a href="#">Duyurular</a></li>
+      <li><a href="#">Notlar</a></li>
+      <li><a href="#">İletişim</a></li>
+    </ul>
+  </nav>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h3>Menü</h3>
+      <button class="sidebtn active">Dashboard</button>
+      <button class="sidebtn">Ödevler</button>
+      <button class="sidebtn">Kaynaklar</button>
+      <button class="sidebtn">Ders Planı</button>
+      <button class="sidebtn">Ayarlar</button>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- ÜST KART -->
+      <section class="card">
+        <h1>Ayşen Web Lab</h1>
+
+        <p id="descText">Sayfa açıldı ✅</p>
+        <button id="btnChangeDesc" class="action-btn">Açıklamayı Değiştir</button>
+      </section>
+
+      <!-- TABLO -->
+      <section class="card">
+        <h2>Tablo</h2>
+
+        <table class="tbl" id="studentTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>İsim</th>
+              <th>Not</th>
+            </tr>
+          </thead>
+          <tbody id="studentBody">
+            <tr><td>1</td><td>Ayşen</td><td>90</td></tr>
+            <tr><td>2</td><td>Ali</td><td>80</td></tr>
+            <tr><td>3</td><td>Elif</td><td>95</td></tr>
+          </tbody>
+        </table>
+
+        <button id="btnSortByName" class="action-btn">Tabloyu Sırala (İsim)</button>
+      </section>
+
+      <!-- MOUSE GLOW ANIMATION (SİYAH KUTU) -->
+      <section class="card">
+        <h2>Mouse Glow Animation</h2>
+        <p class="hint">Mouse’u siyah kutunun içine getir, neon ışık + parçacık izi takip edecek.</p>
+
+        <div class="glow-box" id="glowBox">
+          <div class="glow-core" id="glowCore"></div>
+          <canvas id="trailCanvas"></canvas>
+        </div>
+      </section>
+
+      <!-- FOTO -->
+      <section class="card">
+        <h2>Foto</h2>
+
+        <img id="photo" class="photo" src="img/1.jpg" alt="Foto" />
+        <button id="btnChangePhoto" class="action-btn">Foto Değiştir</button>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="javascript.js"></script>
+</body>
+</html>
