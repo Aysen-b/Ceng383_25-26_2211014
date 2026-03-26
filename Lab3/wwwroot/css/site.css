@@ -36,7 +36,7 @@ body {
 }
 
 .photo {
-    width: 220px;
-    border-radius: 12px;
-    border: 1px solid #ddd;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
