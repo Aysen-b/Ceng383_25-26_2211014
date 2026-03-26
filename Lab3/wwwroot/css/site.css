@@ -29,3 +29,14 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.photo {
+    width: 220px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
