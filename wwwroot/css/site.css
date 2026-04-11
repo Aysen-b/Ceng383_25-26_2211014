@@ -1,0 +1,180 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f5f7;
+}
+
+.container {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    align-items: flex-start;
+}
+
+.sidebar {
+    width: 220px;
+    background: #e9eff6;
+    padding: 14px;
+    border-radius: 12px;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.topbar {
+    background: #2f6f9f;
+    color: white;
+    padding: 12px 16px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.brand {
+    font-weight: bold;
+}
+
+.toplinks a {
+    color: white;
+    text-decoration: none;
+    margin-right: 12px;
+}
+
+.toplinks a:hover {
+    text-decoration: underline;
+}
+
+.sideitem {
+    display: block;
+    padding: 10px 12px;
+    margin: 8px 0;
+    background: white;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #111;
+}
+
+.sideitem:hover {
+    background: #dbeafe;
+}
+
+.sideitem.active {
+    background: #bfd7fe;
+    font-weight: bold;
+}
+
+.card {
+    background: white;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
+
+.mytable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.mytable th,
+.mytable td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.mytable thead th {
+    color: #555;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
+
+.footer {
+    text-align: center;
+    color: #666;
+    padding: 10px;
+}
+.photo {
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.photo:hover {
+    transform: scale(1.1);
+}
+.photo-card {
+    text-align: center;
+}
+
+.photo-card p {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #555;
+}
